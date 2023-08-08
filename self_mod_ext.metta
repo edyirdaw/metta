@@ -18,7 +18,7 @@
 ; Works somehow
 ;(match &self $var (a))
 
-(match &self (state $var $y)
-                  (call:remove_atom &self (state $var $y)))
+;(match &self $var (a) (call:remove_atom &self $var (a)))
+(match &self $var a (remove_atom ))
 
 !(match &self $print $print)
