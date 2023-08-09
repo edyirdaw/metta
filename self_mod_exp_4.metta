@@ -10,3 +10,8 @@
 
 
 !(match &self $print $print)
+
+; This doesn't seem to work. I think change-state it has been defined as a lang extension in python
+(change-state (name id-001) Fritz)
+
+!(match &self $print $print)
