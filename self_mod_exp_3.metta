@@ -10,4 +10,7 @@
 
 ; !(get-state (name id-001) )
 
+(remove
+
 !(match &self $print $print)
+
