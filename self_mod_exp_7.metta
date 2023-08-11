@@ -1,10 +1,22 @@
+(= (remove_state $var)
+               (match &self (state $var $y)
+                  (remove-atom &self (state $var $y))))
+;(= (change_state $var $value)
+;               (, (remove_state $var) (add-atom &self (state $var $value)) ))
 
+(= (change_state $var $value)
+               ( (add-atom &self (state $var $value))  ))
 
-(= (get-state $var)
+(= (get_state $var)
                (match &self (state $var $value) $value))
 
+(state (name id-001) Doh)
 
-((name id-001) Fritz)
+!(get_state (name id-001))
 
+!(remove_state (name id-001))
+!(change_state (name id-001) Fritz)
 
-(get-state id-001)
+!(get_state (name id-001))
+
+!(match &self $print $print)
