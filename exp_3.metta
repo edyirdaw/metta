@@ -1,13 +1,16 @@
 
 
-(hey)
+
 hey
+(hey)
+
 
 (implies (Frog $x) (Green $x))
 (implies (Frog $x) (Eats-flies $x))
 
 
-(match &self (implies (Frog Sam) $what) ($what --1.print--))
+!(match &self (implies (Frog Sam) $what) $what)
+
 
 
 (hey you)
@@ -15,7 +18,7 @@ hey
 (say hey bay)
 
 
-!(match &self (, ($x you) (lay $x) ) ($x --2.print--))
+!(match &self (, ($x you) (lay $x) ($y $x bay) ) $x)
 
 
 !(match &self $print $print)
