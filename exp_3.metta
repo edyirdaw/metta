@@ -43,9 +43,22 @@ hey
        (match &self ($x $y)
          (match &self ($z $y) $z )))
 
+(= (I $x) $x)
+(= ((K $x) $y) $x) ; Note that `(K $x)` is allowed here
+(= (K $x $y) $x)
+(= (S $x $y $z) ($x $z ($y $z)))
 
+(= (Add $x Z) $x)
+;(= (Add $x (S $y)) (Add (S $x) $y))
 
+;!(Add $x Z)
+!(Add (S Y) Z )
 
+;!(assertEqual
+ ; (Add (S Z) (S Z))
+  ;(S (S Z)))
+
+!(S K K x)
 
 !(match &self $print $print)
 
