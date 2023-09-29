@@ -1,85 +1,24 @@
-
-
-
-hey
-(hey)
-
-
-(implies (Frog $x) (Green $x))
-(implies (Frog $x) (Eats-flies $x))
-
-
-!(match &self (implies (Frog Sam) $what) $what)
-
-
-
-(hey you)
-(lay hey)
-(hey bay)
-(say hey bay)
-
-
-!(match &self (, ($x you) (lay $x) ($y $x bay) ) $x)
-
-
-(:= (I $x) $x)
-(:= ((K $x) $y) $x)
-(:= (K $x $y) $x)
-(:= (S $x $y $z) ($x $z ($y $z)))
-
-!(match &self
-    (:= (S K K x) $r)
-    $r)
-
-!(match &self (:= $r $r2)
-      $r2)
-
-!(match &self
-    (:= (S K K x) $r)
-     (match &self (:= $r $r2)
-      $r2))
-
-!(match &self ($x hey)
-       (match &self ($x $y)
-         (match &self ($z $y) $z )))
-
-(= (I $x) $x)
-(= ((K $x) $y) $x) ; Note that `(K $x)` is allowed here
-(= (K $x $y) $x)
-(= (S $x $y $z) ($x $z ($y $z)))
-
-(= (Add $x Z) $x)
-;(= (Add $x (S $y)) (Add (S $x) $y))
-
-;!(Add $x Z)
-!(Add (S Y) Z )
-
-;!(assertEqual
- ; (Add (S Z) (S Z))
-  ;(S (S Z)))
-
-!(S K K x)
-
 (Frog Sam)
-;(Frog Las)
 (= (frog $x) (match &self (Frog $x) T))
 ; `(Frog Sam)` is not reduced; it is just a declaration
 !(assertEqualToResult
    (Frog Sam)
   ((Frog Sam)))
-
-!(assertEqualToResult
-   (mm)
-  ((mm)))
-
-!(Frog Sam)
-!((Frog Sam))
-
 ; `frog` uses this declaration
-!(frog Sam)
-!(frog Fritz)
-!(frog Las)
+!(assertEqual
+  (frog Sam)
+  T)
+!(assertEqualToResult
+  (frog Fritz)
+  ())
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; The result of matching is also chained
+; Example from OpenCog Classic wiki on PLN Backward Chaining
+; `And` and `T` are custom symbols (they are used here
+; to avoid mixing them up with symbols from common lib)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Some facts in the knowledge base
 (Evaluation (philosopher Plato))
 (Evaluation (likes-to-wrestle Plato))
@@ -116,11 +55,7 @@ hey
 (= (And T T) T)
 
 ; Test deduction that Plato is mortal
-
-!(deduce (Evaluation (mortal Plato)))
 !(Evaluation (mortal Plato))
 
-
 ;!(match &self $print $print)
-
 
