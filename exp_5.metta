@@ -57,5 +57,34 @@
 ; Test deduction that Plato is mortal
 !(Evaluation (mortal Plato))
 
+
+(= (explain (Evaluation ($P $x)))
+   (match &self (Evaluation ($P $x)) ($P $x)))
+
+;(Evaluation (mortal Plato))
+;!(explain (Evaluation (mortal Plato))) ; outputs (mortal Plato)
+;!(explain (Evaluation (mortal Plato oo))) ; outputs (explain (Evaluation (mortal Plato oo)))
+
+(= (explain (Evaluation ($P $x)))
+   (match &self
+     (Implication $a (Evaluation ($P $x)))
+     (($P $x) proven by (explain $a))))
+
+; Definition of explain for And
+(= (explain (And $a $b))
+   (And (explain $a) (explain $b)))
+
+; Example of explain why Plato is mortal
+
+!(assertEqual
+  (explain (Evaluation (mortal Plato)))
+  ((mortal Plato)
+    proven by ((human Plato)
+      proven by (And
+        (philosopher Plato)
+        (likes-to-wrestle Plato)))))
+
+!(explain (Evaluation (mortal Plato)))
+
 ;!(match &self $print $print)
 

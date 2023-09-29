@@ -120,6 +120,8 @@ hey
 !(deduce (Evaluation (mortal Plato)))
 !(Evaluation (mortal Plato))
 
+((a b) c)
+!(match &self ($x  c) $x)
 
 ;!(match &self $print $print)
 
