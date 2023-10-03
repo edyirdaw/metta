@@ -26,6 +26,21 @@
 !(find-equal (color) (foo))
 !(find-equal' (color) (foo))
 
+!(get-type (color))
+!(get-type (colorss))
+
+!(get-type Nil)
+!(get-type List)
+!(get-type Type)
+!(get-type car-atom)
+!(get-type 5)
+!(get-type Number)
+
+(: a T)
+
+(= (aa) r)
+!( (aa) )
+
 
 
 
