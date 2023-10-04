@@ -41,6 +41,26 @@
 (= (aa) r)
 !( (aa) )
 
+!(assertEqualToResult
+   (a) ((a)))
+
+(: c1 S1)
+(: c2 S2)
+(: S2 Type)
+
+!(get-type c1)
+!(get-type S1)
+!(get-type c2)
+!(get-type S2)
+
+(Green Sam)
+(= (Green Sam) T)
+!(Green $who)
+!(match &self (Green $who) $who)
+
+
+
+
 
 
 
