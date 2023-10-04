@@ -58,7 +58,7 @@
 !(Green $who)
 !(match &self (Green $who) $who)
 
-
+!(let (S (S $r)) (Add (S Z) (S Z)) $r)
 
 
 
