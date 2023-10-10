@@ -20,3 +20,4 @@
 
 !(get-type (curry3 +))
 
+!(get-type True)
