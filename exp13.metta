@@ -13,4 +13,12 @@
 
 !(change-state! &state-token (C D))
 
+; !(change-state! (new-state 1) "S"))
+
+; !(nop(change-state! (new-state 1) "S"))
+
+; !(get-state (let $x (new-state 1) $x))
+
+!(get-state &state-token)
+
 !(match &self $1 $1)
