@@ -18,7 +18,6 @@
 !(match &s $atom $atom)
 !(add_atoms &self &s)
 
-
 ; Outputs error in self
 !(match &self $atom $atom)
 
