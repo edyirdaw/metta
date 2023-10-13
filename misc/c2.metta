@@ -8,12 +8,17 @@
    )
 )
 
-!(match &s1 $atom (add-atom &s $atom))
-!(match &s2 $atom (add-atom &s $atom))
+;!(match &s1 $atom (add-atom &s $atom))
+;!(match &s2 $atom (add-atom &s $atom))
+
+!(add_atoms &s &s1)
+;!(add-atom &s &s)
+!(add_atoms &s &s2)
 
 !(match &s $atom $atom)
+!(add_atoms &self &s)
 
-;!(add_atoms &self &s)
 
-;!(match &self $atom $atom)
+; Outputs error in self
+!(match &self $atom $atom)
 
